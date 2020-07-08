@@ -48,12 +48,16 @@ namespace CopyDirectory.Libs.Services
                 Console.WriteLine(ex.Message);
                 return (false, UnhandledError);
             }
-
         }
 
         public (bool succes, string error) Copy(string source, string target, CopyItem Item)
         {
-            throw new NotImplementedException();
+            return Copy(new CopySettings
+            {
+                Item = Item,
+                Source = source,
+                Target = target
+            });
         }
 
         public (bool success, string error) CopyDirectory(string source, string target)
